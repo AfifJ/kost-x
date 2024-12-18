@@ -1,0 +1,13 @@
+{
+  "name": "kost-x",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "browser-sync start --proxy 'localhost:8000' --files '*.php, **/*.php'",
+    "php": "php -S localhost:8000 -t public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
