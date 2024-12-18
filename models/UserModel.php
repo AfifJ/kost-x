@@ -10,6 +10,7 @@ class User {
     public $username;
     public $email;
     public $password;
+    public $user_type;
     public $created_at;
 
     // Konstruktor
@@ -70,6 +71,7 @@ class User {
         $this->id = $row['id'];
         $this->username = $row['username'];
         $this->password = $row['password'];
+        $this->user_type = $row['user_type'];
 
         return $stmt->rowCount();
     }
@@ -168,6 +170,7 @@ class User {
             // Set properties
             $this->id = $row['id'];
             $this->username = $row['username'];
+            $this->user_type = $row['user_type'];
             return true;
         }
 

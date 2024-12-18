@@ -3,9 +3,11 @@ session_start();
 
 require_once '../controllers/AuthController.php';
 require_once '../controllers/HomeController.php';
+require_once '../controllers/DashboardController.php';
 
 $authController = new AuthController();
 $homeController = new HomeController();
+$dashboardController = new DashboardController();
 
 // Fungsi untuk memeriksa status login
 function isLoggedIn() {
@@ -27,18 +29,25 @@ $alwaysAccessibleRoutes = ['/404'];
 // Routing manual
 switch ($request) {
     case '/':
-    case '':
-        if (isLoggedIn()) {
-            header("Location: /dashboard");
-        } else {
+        // Halaman utama bisa diakses oleh semua
+        $homeController->index();
+        // include '../views/index.php';
+        break;
+    
+    case '/dashboard':
+        // Halaman dashboard hanya bisa diakses setelah login
+        if (!isLoggedIn()) {
             header("Location: /login");
+            exit();
         }
-        exit();
+        
+        $dashboardController->index();
+        break;
     
     case '/login':
     case '/register':
     case '/forgot-password':
-        // Jika sudah login, redirect ke dashboard
+        // Jika sudah login, redirect ke beranda
         if (isLoggedIn()) {
             header("Location: /dashboard");
             exit();
@@ -58,7 +67,6 @@ switch ($request) {
         include "../views/$view";
         break;
     
-    case '/dashboard':
     case '/profile':
     case '/settings':
         // Cek apakah sudah login
@@ -69,16 +77,12 @@ switch ($request) {
 
         // Proses halaman yang membutuhkan login
         switch ($request) {
-            case '/dashboard':
-                $homeController->dashboard();
-                include '../views/dashboard.php';
-                break;
             case '/profile':
-                $homeController->profile();
+                $dashboardController->profile();
                 include '../views/profile.php';
                 break;
             case '/settings':
-                $homeController->settings();
+                $dashboardController->settings();
                 include '../views/settings.php';
                 break;
         }

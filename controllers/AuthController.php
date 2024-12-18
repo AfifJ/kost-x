@@ -44,6 +44,8 @@ class AuthController {
             // Set session
             $_SESSION['user_id'] = $this->user->id;
             $_SESSION['username'] = $this->user->username;
+            $_SESSION['user_type'] = $this->user->user_type;
+
             header('Location: /dashboard');
             return ["Login berhasil"];
         } else {

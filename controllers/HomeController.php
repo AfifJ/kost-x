@@ -9,4 +9,15 @@ class HomeController {
             exit();
         }
     }
+
+    public function index() {
+        // Logika untuk halaman utama (publik)
+        $data = [
+            'title' => 'Selamat Datang',
+            'description' => 'Halaman utama website'
+        ];
+
+        include '../views/index.php';
+    }
+
 }

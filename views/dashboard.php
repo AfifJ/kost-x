@@ -1,20 +1,22 @@
-<?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-if (!isset($_SESSION['user_id'])) {
-    header("Location: /login");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Dashboard</title>
 </head>
 <body>
-    <h2>Selamat Datang, <?= $_SESSION['username'] ?></h2>
-    <a href="/logout">Logout</a>
+    <h1>Selamat Datang, <?= htmlspecialchars($data['username']) ?></h1>
+    <p>Kamu adalah seorang <?= $data['user_type'] ?></p>
+    <div class="stats">
+        <!-- Tampilkan statistik -->
+    </div>
+    
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profil</a></li>
+            <li><a href="/settings">Pengaturan</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
 </body>
 </html>
