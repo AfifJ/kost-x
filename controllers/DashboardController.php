@@ -1,6 +1,8 @@
 <?php
 class DashboardController {
     public function index() {
+        global $bookingController;
+
         // Pastikan sudah login
         if (!isset($_SESSION['user_id'])) {
             header("Location: /login");
@@ -11,12 +13,21 @@ class DashboardController {
         $data = [
             'username' => $_SESSION['username'],
             'user_type' => $_SESSION['user_type'],
-
             'stats' => $this->getUserStats()
         ];
 
-        include '../views/dashboard.php';
+        // Get active booking information
+        if (isset($_SESSION['user_id'])) {
+            $data['activeBooking'] = $bookingController->getUserActiveBooking($_SESSION['user_id']);
+        }
 
+        // Get user's complaints if they have an active booking
+        if (isset($data['activeBooking'])) {
+            global $complaintController;
+            $data['complaints'] = $complaintController->getUserComplaints($_SESSION['user_id']);
+        }
+
+        include '../views/dashboard.php';
     }
 
     public function profile() {

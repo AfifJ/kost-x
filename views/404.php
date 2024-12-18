@@ -4,6 +4,7 @@
     <title>Halaman Tidak Ditemukan</title>
 </head>
 <body>
+<?php include "navbar.php"?>
     <h1>404 - Halaman Tidak Ditemukan</h1>
     <p>Maaf, halaman yang Anda cari tidak tersedia.</p>
     <?php if (!isLoggedIn()): ?>

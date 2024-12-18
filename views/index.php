@@ -4,6 +4,7 @@
     <title><?= htmlspecialchars($data['title']) ?></title>
 </head>
 <body>
+<?php include "navbar.php"?>
     <h1><?= htmlspecialchars($data['title']) ?></h1>
     <p><?= htmlspecialchars($data['description']) ?></p>
     
