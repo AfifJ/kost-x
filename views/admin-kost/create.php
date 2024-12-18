@@ -2,9 +2,13 @@
 <html>
 <head>
     <title>Tambah Kost Baru</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
+<?php include __DIR__."/../navbar.php" ?>
 
 
 <div class="container">
@@ -96,10 +100,10 @@
                    value="<?php echo isset($kamar_tersedia) ? htmlspecialchars($kamar_tersedia) : ''; ?>" required>
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="foto_kost">Foto Kost</label>
             <input type="file" class="form-control-file" id="foto_kost" name="foto_kost" required>
-        </div>
+        </div> -->
 
         <button type="submit" class="btn btn-primary">Tambah Kost</button>
     </form>

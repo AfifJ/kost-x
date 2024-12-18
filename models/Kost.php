@@ -32,8 +32,8 @@ class Kost
     public function create($data)
     {
 
-        $query = "INSERT INTO " . $this->table . " (nama_kost, alamat, latitude, longitude, deskripsi_umum, tipe_kost, jam_bertamu, aturan_kost, kontak_pemilik, email_pemilik, kamar_tersedia) 
-                  VALUES (:nama_kost, :alamat, :latitude, :longitude, :deskripsi_umum, :tipe_kost, :jam_bertamu, :aturan_kost, :kontak_pemilik, :email_pemilik, :kamar_tersedia)";
+        $query = "INSERT INTO " . $this->table . " (nama_kost, alamat, latitude, longitude, deskripsi_umum, tipe_kost, jam_bertamu, aturan_kost, kontak_pemilik, email_pemilik, kamar_tersedia, owner_id) 
+                  VALUES (:nama_kost, :alamat, :latitude, :longitude, :deskripsi_umum, :tipe_kost, :jam_bertamu, :aturan_kost, :kontak_pemilik, :email_pemilik, :kamar_tersedia, :owner_id)";
         $stmt = $this->conn->prepare($query);
         return $stmt->execute($data);
     }

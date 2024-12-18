@@ -2,11 +2,13 @@
 <html>
 <head>
     <title>Daftar Kost</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
 
-
+<?php include __DIR__."/../navbar.php" ?>
 <div class="container">
     <h2 class="my-4">Daftar Kost</h2>
     <a href="/dashboard" class="btn btn-primary mb-3">Dashboard</a>
@@ -35,7 +37,5 @@
         </tbody>
     </table>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

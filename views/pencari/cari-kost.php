@@ -51,9 +51,14 @@
             font-size: 16px;
         }
     </style>
+    
 </head>
 <body>
-<?php include "../navbar.php"?>
+<?php 
+
+include __DIR__."/../navbar.php"
+
+?>
 
 <div class="container">
     <h2 class="my-4">Cari Kost</h2>

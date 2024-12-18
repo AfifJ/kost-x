@@ -116,20 +116,20 @@ switch ($request) {
         break;
 
     case '/kost/create':
-        if (!isLoggedIn() || $_SESSION['user_type'] !== 'admin') {
+        if (!isLoggedIn()) {
             header("Location: /login");
             exit();
         }
         $kostController->create();
         break;
 
-    case '/kost/manage':
-        if (!isLoggedIn()) {
-            header("Location: /login");
-            exit();
-        }
-        $kostController->index();
-        break;
+    // case '/kost/manage':
+    //     if (!isLoggedIn()) {
+    //         header("Location: /login");
+    //         exit();
+    //     }
+    //     $kostController->index();
+    //     break;
 
     case '/kost/edit':
         if (!isLoggedIn()) {
